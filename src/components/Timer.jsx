@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { startTimer, pauseTimer, resetTimer, tick } from '../redux/reducers/timerReducer';
+import { showNotification } from '../utils/notifications';
 
 function Timer() {
   const dispatch = useDispatch();
@@ -26,16 +27,20 @@ function Timer() {
       if (sessionCount < 3) {
         setSessionType('shortBreak');
         setSessionCount(sessionCount + 1);
+        showNotification('Short Break', 'Time for a short break!');
       } else {
         setSessionType('longBreak');
         setSessionCount(0);
+        showNotification('Long Break', 'Time for a long break!');
       }
       dispatch(resetTimer());
     } else if (sessionType === 'shortBreak' && timer.time >= shortBreakDuration * 60) {
       setSessionType('work');
+      showNotification('Work Session', 'Time to get back to work!');
       dispatch(resetTimer());
     } else if (sessionType === 'longBreak' && timer.time >= longBreakDuration * 60) {
       setSessionType('work');
+      showNotification('Work Session', 'Time to get back to work!');
       dispatch(resetTimer());
     }
   }, [timer.time, sessionType, workDuration, shortBreakDuration, longBreakDuration, sessionCount, dispatch]);
