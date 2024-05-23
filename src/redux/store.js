@@ -31,7 +31,7 @@ const saveState = (state) => {
 
 const preloadedState = loadState();
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     timer: timerReducer,
     tasks: tasksReducer,
