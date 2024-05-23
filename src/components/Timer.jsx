@@ -7,6 +7,7 @@ function Timer() {
   const timer = useSelector((state) => state.timer);
   const { workDuration, shortBreakDuration, longBreakDuration } = useSelector((state) => state.settings);
   const [sessionType, setSessionType] = useState('work');
+  const [sessionCount, setSessionCount] = useState(0);
 
   useEffect(() => {
     let interval = null;
@@ -21,21 +22,27 @@ function Timer() {
   }, [timer.isRunning, timer.time, dispatch]);
 
   useEffect(() => {
-    if (timer.time === workDuration * 60 && sessionType === 'work') {
-      setSessionType('shortBreak');
+    if (sessionType === 'work' && timer.time >= workDuration * 60) {
+      if (sessionCount < 3) {
+        setSessionType('shortBreak');
+        setSessionCount(sessionCount + 1);
+      } else {
+        setSessionType('longBreak');
+        setSessionCount(0);
+      }
       dispatch(resetTimer());
-    } else if (timer.time === shortBreakDuration * 60 && sessionType === 'shortBreak') {
+    } else if (sessionType === 'shortBreak' && timer.time >= shortBreakDuration * 60) {
       setSessionType('work');
       dispatch(resetTimer());
-    } else if (timer.time === longBreakDuration * 60 && sessionType === 'longBreak') {
+    } else if (sessionType === 'longBreak' && timer.time >= longBreakDuration * 60) {
       setSessionType('work');
       dispatch(resetTimer());
     }
-  }, [timer.time, workDuration, shortBreakDuration, longBreakDuration, sessionType, dispatch]);
+  }, [timer.time, sessionType, workDuration, shortBreakDuration, longBreakDuration, sessionCount, dispatch]);
 
   return (
     <div>
-      <h1>{sessionType === 'work' ? 'Work' : 'Break'} Timer</h1>
+      <h1>{sessionType === 'work' ? 'Work' : sessionType === 'shortBreak' ? 'Short Break' : 'Long Break'} Timer</h1>
       <p>Time: {new Date(timer.time * 1000).toISOString().substr(11, 8)}</p>
       <button onClick={() => dispatch(startTimer())}>Start</button>
       <button onClick={() => dispatch(pauseTimer())}>Pause</button>
