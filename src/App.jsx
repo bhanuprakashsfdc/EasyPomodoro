@@ -6,6 +6,7 @@ function App() {
   return (
     <>
   <p> {WEBSITE_NAME}</p>
+  <p> I am easy pomodoro.com</p>
     </>
   )
 }
