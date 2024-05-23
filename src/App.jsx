@@ -6,26 +6,48 @@ import Tasks from './components/Tasks';
 import Settings from './components/Settings';
 import Profile from './components/Profile';
 import Header from './components/Header';
-
-import { WEBSITE_NAME } from './constants/constants';
+import Footer from './components/Footer';
+import Sidebar from './components/Sidebar';
 
 function App() {
   return (
     <Router>
-      <div>
+      <div style={styles.appContainer}>
         <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/timer" element={<Timer />} />
-          <Route path="/tasks" element={<Tasks />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="*" element={<div>404 Not Found</div>} />
-        </Routes>
+        <div style={styles.mainContent}>
+          <Sidebar />
+          <div style={styles.content}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/timer" element={<Timer />} />
+              <Route path="/tasks" element={<Tasks />} />
+              <Route path="/settings" element={<Settings />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="*" element={<div>404 Not Found</div>} />
+            </Routes>
+          </div>
+        </div>
+        <Footer />
       </div>
     </Router>
   );
 }
 
-export default App;
+const styles = {
+  appContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100vh',
+  },
+  mainContent: {
+    display: 'flex',
+    flex: 1,
+  },
+  content: {
+    marginLeft: '200px',
+    padding: '20px',
+    flex: 1,
+  },
+};
 
+export default App;

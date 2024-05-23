@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Header() {
+function Sidebar() {
   return (
-    <header style={styles.header}>
+    <aside style={styles.sidebar}>
       <nav>
         <ul style={styles.navList}>
           <li style={styles.navItem}>
@@ -23,25 +23,27 @@ function Header() {
           </li>
         </ul>
       </nav>
-    </header>
+    </aside>
   );
 }
 
 const styles = {
-  header: {
-    backgroundColor: '#282c34',
+  sidebar: {
+    width: '200px',
+    backgroundColor: '#f4f4f4',
     padding: '10px',
-    color: 'white',
+    height: '100vh',
+    position: 'fixed',
+    top: 0,
+    left: 0,
   },
   navList: {
     listStyle: 'none',
-    display: 'flex',
-    justifyContent: 'space-around',
     padding: 0,
   },
   navItem: {
-    margin: '0 10px',
+    margin: '10px 0',
   },
 };
 
-export default Header;
+export default Sidebar;
