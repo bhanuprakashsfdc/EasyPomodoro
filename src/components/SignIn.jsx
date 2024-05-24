@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { auth, googleProvider } from '../firebase';
 import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { setUser } from '../redux/reducers/authReducer';
@@ -90,10 +90,10 @@ function SignIn() {
         </form>
         {error && <p className="text-red-500 mt-4">{error}</p>}
         <p className="mt-4 text-gray-600">
-          <a href="/forgot-password" className="text-blue-500 hover:underline">Forgot Password</a>
+        <Link to="/forgot-password" className="text-blue-500 hover:underline">Forgot Password</Link>
         </p>
         <p className="mt-4 text-gray-600">
-          Do not have an account? <a href="/signup" className="text-blue-500 hover:underline">Create account</a>
+          Do not have an account? <Link to="/signup" className="text-blue-500 hover:underline">Create account</Link>
         </p>
       </div>
     </div>
