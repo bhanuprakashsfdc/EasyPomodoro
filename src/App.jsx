@@ -37,7 +37,6 @@ function App() {
   return (
     <Router>
       <div className={`min-h-screen flex flex-col ${theme === 'dark' ? 'dark' : ''}`}>
-        <Header />
         <div className="flex flex-1">
           <Sidebar />
           <div className="flex-1 p-4 ml-48">
