@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  isRunning: false,
   time: 0,
+  isRunning: false,
 };
 
 const timerSlice = createSlice({
@@ -15,12 +15,16 @@ const timerSlice = createSlice({
     pauseTimer: (state) => {
       state.isRunning = false;
     },
-    resetTimer: (state) => {
+    resetTimer: (state, action) => {
+      state.time = action.payload;
       state.isRunning = false;
-      state.time = 0;
     },
     tick: (state) => {
-      state.time += 1;
+      if (state.time > 0) {
+        state.time -= 1;
+      } else {
+        state.isRunning = false;
+      }
     },
   },
 });
