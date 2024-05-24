@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Home from './components/Home';
@@ -13,6 +13,8 @@ import SignOut from './components/SignOut';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
+import ThemeToggle from './components/ThemeToggle';
+import GlobalError from './components/GlobalError'; // Import GlobalError component
 
 function PrivateRoute({ children }) {
   const user = useSelector((state) => state.auth.user);
@@ -20,13 +22,24 @@ function PrivateRoute({ children }) {
 }
 
 function App() {
+  const theme = useSelector((state) => state.theme);
+
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [theme]);
+
   return (
     <Router>
-      <div style={styles.appContainer}>
+      <div className={`min-h-screen flex flex-col ${theme === 'dark' ? 'dark' : ''}`}>
         <Header />
-        <div style={styles.mainContent}>
+        <div className="flex flex-1">
           <Sidebar />
-          <div style={styles.content}>
+          <div className="flex-1 p-4">
+            <ThemeToggle />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/timer" element={<PrivateRoute><Timer /></PrivateRoute>} />
@@ -39,6 +52,7 @@ function App() {
               <Route path="/signout" element={<SignOut />} />
               <Route path="*" element={<div>404 Not Found</div>} />
             </Routes>
+            <GlobalError /> {/* Include GlobalError component */}
           </div>
         </div>
         <Footer />
@@ -46,22 +60,5 @@ function App() {
     </Router>
   );
 }
-
-const styles = {
-  appContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100vh',
-  },
-  mainContent: {
-    display: 'flex',
-    flex: 1,
-  },
-  content: {
-    marginLeft: '200px',
-    padding: '20px',
-    flex: 1,
-  },
-};
 
 export default App;

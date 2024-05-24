@@ -52,10 +52,10 @@ function Timer() {
 
   return (
     <div className="text-center">
-      <h1 className="text-3xl font-bold mb-4">{sessionType === 'work' ? 'Work' : sessionType === 'shortBreak' ? 'Short Break' : 'Long Break'} Timer</h1>
-      <p className="text-2xl mb-4">Time: {new Date(timer.time * 1000).toISOString().substr(11, 8)}</p>
+      <h1 className="text-4xl font-bold mb-4">{sessionType === 'work' ? 'Work' : sessionType === 'shortBreak' ? 'Short Break' : 'Long Break'} Timer</h1>
+      <p className="text-3xl mb-4">Time: {new Date(timer.time * 1000).toISOString().substr(14, 5)}</p>
       <div className="space-x-2">
-        <button onClick={() => dispatch(startTimer())} className="bg-blue-500 text-white px-4 py-2 rounded">Start</button>
+        <button onClick={() => dispatch(startTimer())} className="bg-green-500 text-white px-4 py-2 rounded">Start</button>
         <button onClick={() => dispatch(pauseTimer())} className="bg-yellow-500 text-white px-4 py-2 rounded">Pause</button>
         <button onClick={() => dispatch(resetTimer())} className="bg-red-500 text-white px-4 py-2 rounded">Reset</button>
       </div>

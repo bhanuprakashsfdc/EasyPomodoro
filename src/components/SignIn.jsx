@@ -7,21 +7,25 @@ import { setUser } from '../redux/reducers/authReducer';
 function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const dispatch = useDispatch();
 
   const handleSignIn = async (e) => {
     e.preventDefault();
+    setError('');
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       dispatch(setUser(userCredential.user));
     } catch (error) {
       console.error('Error signing in:', error);
+      setError(error.message);
     }
   };
 
   return (
-    <div>
-      <h1>Sign In</h1>
+    <div className="p-4">
+      <h1 className="text-2xl font-bold mb-4">Sign In</h1>
+      {error && <p className="text-red-500 mb-4">{error}</p>}
       <form onSubmit={handleSignIn}>
         <input
           type="email"
@@ -29,6 +33,7 @@ function SignIn() {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
           required
+          className="border border-gray-300 p-2 rounded mb-4 w-full"
         />
         <input
           type="password"
@@ -36,8 +41,9 @@ function SignIn() {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
           required
+          className="border border-gray-300 p-2 rounded mb-4 w-full"
         />
-        <button type="submit">Sign In</button>
+        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded w-full">Sign In</button>
       </form>
     </div>
   );
