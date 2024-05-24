@@ -6,6 +6,8 @@ import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { setUser } from '../redux/reducers/authReducer';
 import { toast } from 'react-toastify';
 
+import { WEBSITE_NAME } from '../constants/constants';
+
 function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -51,15 +53,15 @@ function SignIn() {
     <div className="min-h-screen flex items-center justify-center bg-red-700">
       <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full text-center">
         <div className="mb-8">
-          <img src="/public/assets/logo.png" alt="Logo" className="mx-auto mb-4" /> {/* Replace with your logo path */}
-          <h1 className="text-2xl font-bold text-red-700">Pomofocus</h1>
+          <img src="/public/assets/img/glogo.png" alt="Logo" className="mx-auto mb-4" /> {/* Replace with your logo path */}
+          <h1 className="text-2xl font-bold text-red-700">{ WEBSITE_NAME }</h1>
           <p className="text-gray-700">Login</p>
         </div>
         <button
           onClick={handleGoogleSignIn}
           className="bg-white text-gray-700 border border-gray-300 rounded-lg py-2 px-4 flex items-center justify-center mb-4 w-full"
         >
-          <img src="/public/assets/g-logo.png" alt="Google" className="w-6 h-6 mr-2" />
+          <img src="/public/assets/img/glogo.png" alt="Google" className="w-6 h-6 mr-2" />
           Login with Google
         </button>
         <div className="flex items-center my-4">

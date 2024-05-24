@@ -4,6 +4,8 @@ import { auth } from '../firebase';
 import { sendPasswordResetEmail } from 'firebase/auth';
 import { toast } from 'react-toastify';
 
+import { WEBSITE_NAME } from '../constants/constants';
+
 function ForgotPassword() {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
@@ -26,8 +28,8 @@ function ForgotPassword() {
     <div className="min-h-screen flex items-center justify-center bg-red-700">
       <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full text-center">
         <div className="mb-8">
-          <img src="/public/assets/logo.png" alt="Logo" className="mx-auto mb-4" /> {/* Replace with your logo path */}
-          <h1 className="text-2xl font-bold text-red-700">Pomofocus</h1>
+          <img src="/public/assets/img/glogo.png" alt="Logo" className="mx-auto mb-4" /> {/* Replace with your logo path */}
+          <h1 className="text-2xl font-bold text-red-700">{ WEBSITE_NAME }</h1>
           <p className="text-gray-700">Reset Password</p>
         </div>
         <form onSubmit={handlePasswordReset} className="space-y-4">
