@@ -1,10 +1,9 @@
 import React from 'react'
-
+import Timer from '../components/Timer';
 const Home = () => {
   return (
     <div>
-      <h1>Home</h1>
-      <p>Welcome to the Pomodoro App!</p>
+      <Timer />
     </div>
   )
 }

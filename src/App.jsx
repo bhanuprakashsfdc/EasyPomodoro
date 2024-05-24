@@ -10,7 +10,6 @@ import Statistics from './components/Statistics';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
 import SignOut from './components/SignOut';
-import Header from './components/Header';
 import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
 import ThemeToggle from './components/ThemeToggle';
@@ -35,10 +34,9 @@ function App() {
   return (
     <Router>
       <div className={`min-h-screen flex flex-col ${theme === 'dark' ? 'dark' : ''}`}>
-        <Header />
         <div className="flex flex-1">
           <Sidebar />
-          <div className="flex-1 p-4">
+          <div className="flex-1 p-4 md:ml-48"> {/* Adjusted to accommodate sidebar width */}
             <ThemeToggle />
             <Routes>
               <Route path="/" element={<Home />} />
