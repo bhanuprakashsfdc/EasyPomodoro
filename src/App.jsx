@@ -10,6 +10,7 @@ import Statistics from './components/Statistics';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
 import SignOut from './components/SignOut';
+import ForgotPassword from './components/ForgotPassword';
 import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
 import ThemeToggle from './components/ThemeToggle';
@@ -37,7 +38,7 @@ function App() {
         <div className="flex flex-1">
           <Sidebar />
           <div className="flex-1 p-4 md:ml-48"> {/* Adjusted to accommodate sidebar width */}
-            <ThemeToggle />
+           {/* <ThemeToggle />*/}
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/timer" element={<Timer />} /> {/* Allow access to Timer without login */}
@@ -48,6 +49,7 @@ function App() {
               <Route path="/signup" element={<SignUp />} />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/signout" element={<SignOut />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="*" element={<div>404 Not Found</div>} />
             </Routes>
             <GlobalError />
