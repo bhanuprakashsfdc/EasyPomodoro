@@ -10,7 +10,7 @@ import Statistics from './components/Statistics';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
 import SignOut from './components/SignOut';
-import ForgotPassword from './components/ForgotPassword';
+import Header from './components/Header';
 import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
 import ThemeToggle from './components/ThemeToggle';
@@ -23,6 +23,7 @@ function PrivateRoute({ children }) {
 
 function App() {
   const theme = useSelector((state) => state.theme);
+  const backgroundColor = useSelector((state) => state.settings.backgroundColor);
 
   useEffect(() => {
     if (theme === 'dark') {
@@ -30,26 +31,27 @@ function App() {
     } else {
       document.documentElement.classList.remove('dark');
     }
-  }, [theme]);
+    document.body.style.backgroundColor = backgroundColor;
+  }, [theme, backgroundColor]);
 
   return (
     <Router>
       <div className={`min-h-screen flex flex-col ${theme === 'dark' ? 'dark' : ''}`}>
+        <Header />
         <div className="flex flex-1">
           <Sidebar />
-          <div className="flex-1 p-4 md:ml-48"> {/* Adjusted to accommodate sidebar width */}
-           {/* <ThemeToggle />*/}
+          <div className="flex-1 p-4 ml-48">
+            <ThemeToggle />
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/timer" element={<Timer />} /> {/* Allow access to Timer without login */}
-              <Route path="/tasks" element={<Tasks />} /> {/* Allow access to Tasks without login */}
+              <Route path="/timer" element={<Timer />} />
+              <Route path="/tasks" element={<Tasks />} />
               <Route path="/settings" element={<PrivateRoute><Settings /></PrivateRoute>} />
               <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
               <Route path="/statistics" element={<PrivateRoute><Statistics /></PrivateRoute>} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/signout" element={<SignOut />} />
-              <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="*" element={<div>404 Not Found</div>} />
             </Routes>
             <GlobalError />
