@@ -21,6 +21,9 @@ function Sidebar() {
           <li style={styles.navItem}>
             <Link to="/profile">Profile</Link>
           </li>
+          <li style={styles.navItem}>
+            <Link to="/statistics">Statistics</Link>
+          </li>
         </ul>
       </nav>
     </aside>
