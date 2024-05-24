@@ -1,6 +1,9 @@
 .text-5xl {
     font-size: 25rem !important;
 }
+.playerview{
+    display: none;
+}
 
 /* On screens that are 992px wide or less, go from four columns to two columns */
 @media screen and (max-width: 992px) {

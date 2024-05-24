@@ -3,7 +3,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { startTimer, pauseTimer, resetTimer, tick } from '../redux/reducers/timerReducer';
 import { incrementWorkSessions, addWorkTime, incrementShortBreaks, incrementLongBreaks } from '../redux/reducers/statisticsReducer';
 import { showNotification } from '../utils/notifications';
-import './components.css';
+import MusicPlayer from './MusicPlayer';
+
+const songUrls = [
+  'https://youtu.be/70A9vqpJsZM?si=Pxq2bK4sQC51Ovle', // Replace with your YouTube URLs
+  'https://www.youtube.com/watch?v=s9jHnpPlznM',
+  'https://www.youtube.com/watch?v=Y7HGrexMZsE',
+  // Add more song URLs here
+];
 
 function Timer() {
   const dispatch = useDispatch();
@@ -11,6 +18,7 @@ function Timer() {
   const { workDuration, shortBreakDuration, longBreakDuration } = useSelector((state) => state.settings);
   const [sessionType, setSessionType] = useState('work');
   const [sessionCount, setSessionCount] = useState(0);
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
 
   useEffect(() => {
     let interval = null;
@@ -18,11 +26,13 @@ function Timer() {
       interval = setInterval(() => {
         dispatch(tick());
       }, 1000);
-    } else if (!timer.isRunning && timer.time !== 0) {
+      setIsMusicPlaying(true);
+    } else {
       clearInterval(interval);
+      setIsMusicPlaying(false);
     }
     return () => clearInterval(interval);
-  }, [timer.isRunning, timer.time, dispatch]);
+  }, [timer.isRunning, dispatch]);
 
   useEffect(() => {
     if (!timer.isRunning && timer.time === 0) {
@@ -61,10 +71,18 @@ function Timer() {
     }
   };
 
+  const handleMusicPlayPause = (isPlaying) => {
+    setIsMusicPlaying(isPlaying);
+  };
+
+  const handleMusicNext = (nextIndex) => {
+    // Additional logic for handling the next song if needed
+  };
+
   return (
     <div className="text-center">
       <h1 className="text-4xl font-bold mb-4">{sessionType === 'work' ? 'Work' : sessionType === 'shortBreak' ? 'Short Break' : 'Long Break'} Timer</h1>
-      <p className="text-5xl mb-4">
+      <p className="text-5xl mb-4" style={{ fontSize: '70px' }}>
         {new Date(timer.time * 1000).toISOString().substr(14, 5)}
       </p>
       <div className="space-x-2 mb-4">
@@ -77,6 +95,7 @@ function Timer() {
         <button onClick={() => dispatch(pauseTimer())} className="bg-yellow-500 text-white px-4 py-2 rounded">Pause</button>
         <button onClick={() => dispatch(resetTimer(sessionType === 'work' ? workDuration * 60 : sessionType === 'shortBreak' ? shortBreakDuration * 60 : longBreakDuration * 60))} className="bg-red-500 text-white px-4 py-2 rounded">Reset</button>
       </div>
+      <MusicPlayer songUrls={songUrls} isPlaying={isMusicPlaying} onPlayPause={handleMusicPlayPause} onNext={handleMusicNext} />
     </div>
   );
 }
