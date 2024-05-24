@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { auth } from '../firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { setUser } from '../redux/reducers/authReducer';
+import { toast } from 'react-toastify';
 
 function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -20,6 +23,8 @@ function SignIn() {
         email: userCredential.user.email,
       };
       dispatch(setUser(user));
+      toast.success('Logged in successfully!');
+      navigate('/');
     } catch (error) {
       console.error('Error signing in:', error);
       setError(error.message);

@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { auth } from '../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { setUser } from '../redux/reducers/authReducer';
+import { toast } from 'react-toastify';
 
 function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -20,6 +23,8 @@ function SignUp() {
         email: userCredential.user.email,
       };
       dispatch(setUser(user));
+      toast.success('User account has been created!');
+      navigate('/signin');
     } catch (error) {
       console.error('Error signing up:', error);
       setError(error.message);
