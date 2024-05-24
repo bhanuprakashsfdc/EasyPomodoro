@@ -4,6 +4,7 @@ import App from './App.jsx'
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import './index.css'
+import './tailwind.css';
 
 // Request notification permission
 if (Notification.permission === 'default') {

@@ -3,45 +3,18 @@ import { Link } from 'react-router-dom';
 
 function Header() {
   return (
-    <header style={styles.header}>
+    <header className="bg-gray-800 text-white p-4">
       <nav>
-        <ul style={styles.navList}>
-          <li style={styles.navItem}>
-            <Link to="/">Home</Link>
-          </li>
-          <li style={styles.navItem}>
-            <Link to="/timer">Timer</Link>
-          </li>
-          <li style={styles.navItem}>
-            <Link to="/tasks">Tasks</Link>
-          </li>
-          <li style={styles.navItem}>
-            <Link to="/settings">Settings</Link>
-          </li>
-          <li style={styles.navItem}>
-            <Link to="/profile">Profile</Link>
-          </li>
+        <ul className="flex justify-around">
+          <li><Link to="/" className="hover:underline">Home</Link></li>
+          <li><Link to="/timer" className="hover:underline">Timer</Link></li>
+          <li><Link to="/tasks" className="hover:underline">Tasks</Link></li>
+          <li><Link to="/settings" className="hover:underline">Settings</Link></li>
+          <li><Link to="/profile" className="hover:underline">Profile</Link></li>
         </ul>
       </nav>
     </header>
   );
 }
-
-const styles = {
-  header: {
-    backgroundColor: '#282c34',
-    padding: '10px',
-    color: 'white',
-  },
-  navList: {
-    listStyle: 'none',
-    display: 'flex',
-    justifyContent: 'space-around',
-    padding: 0,
-  },
-  navItem: {
-    margin: '0 10px',
-  },
-};
 
 export default Header;
