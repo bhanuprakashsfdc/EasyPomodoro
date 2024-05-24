@@ -15,7 +15,11 @@ function SignUp() {
     setError('');
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      dispatch(setUser(userCredential.user));
+      const user = {
+        uid: userCredential.user.uid,
+        email: userCredential.user.email,
+      };
+      dispatch(setUser(user));
     } catch (error) {
       console.error('Error signing up:', error);
       setError(error.message);

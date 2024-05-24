@@ -8,6 +8,7 @@ function Timer() {
   const dispatch = useDispatch();
   const timer = useSelector((state) => state.timer);
   const { workDuration, shortBreakDuration, longBreakDuration } = useSelector((state) => state.settings);
+  const user = useSelector((state) => state.auth.user);
   const [sessionType, setSessionType] = useState('work');
   const [sessionCount, setSessionCount] = useState(0);
 
@@ -53,7 +54,7 @@ function Timer() {
   return (
     <div className="text-center">
       <h1 className="text-4xl font-bold mb-4">{sessionType === 'work' ? 'Work' : sessionType === 'shortBreak' ? 'Short Break' : 'Long Break'} Timer</h1>
-      <p className="text-3xl mb-4">Time: {new Date(timer.time * 1000).toISOString().substr(14, 5)}</p>
+      <p className="text-3xl mb-4" style={{ fontSize: '100px' }}> {new Date(timer.time * 1000).toISOString().substr(14, 5)}</p>
       <div className="space-x-2">
         <button onClick={() => dispatch(startTimer())} className="bg-green-500 text-white px-4 py-2 rounded">Start</button>
         <button onClick={() => dispatch(pauseTimer())} className="bg-yellow-500 text-white px-4 py-2 rounded">Pause</button>

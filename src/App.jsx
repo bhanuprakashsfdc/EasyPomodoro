@@ -14,7 +14,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
 import ThemeToggle from './components/ThemeToggle';
-import GlobalError from './components/GlobalError'; // Import GlobalError component
+import GlobalError from './components/GlobalError';
 
 function PrivateRoute({ children }) {
   const user = useSelector((state) => state.auth.user);
@@ -42,8 +42,8 @@ function App() {
             <ThemeToggle />
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/timer" element={<PrivateRoute><Timer /></PrivateRoute>} />
-              <Route path="/tasks" element={<PrivateRoute><Tasks /></PrivateRoute>} />
+              <Route path="/timer" element={<Timer />} /> {/* Allow access to Timer without login */}
+              <Route path="/tasks" element={<Tasks />} /> {/* Allow access to Tasks without login */}
               <Route path="/settings" element={<PrivateRoute><Settings /></PrivateRoute>} />
               <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
               <Route path="/statistics" element={<PrivateRoute><Statistics /></PrivateRoute>} />
@@ -52,7 +52,7 @@ function App() {
               <Route path="/signout" element={<SignOut />} />
               <Route path="*" element={<div>404 Not Found</div>} />
             </Routes>
-            <GlobalError /> {/* Include GlobalError component */}
+            <GlobalError />
           </div>
         </div>
         <Footer />
