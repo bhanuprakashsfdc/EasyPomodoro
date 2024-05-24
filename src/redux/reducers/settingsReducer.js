@@ -4,7 +4,8 @@ const initialState = {
   workDuration: 25,
   shortBreakDuration: 5,
   longBreakDuration: 15,
-  notificationSound: 'default',
+  backgroundColor: '#ffffff', // default background color
+  availableColors: ['#ffffff', '#f0f0f0', '#e0e0e0'], // default color options
 };
 
 const settingsSlice = createSlice({
@@ -20,11 +21,14 @@ const settingsSlice = createSlice({
     setLongBreakDuration: (state, action) => {
       state.longBreakDuration = action.payload;
     },
-    setNotificationSound: (state, action) => {
-      state.notificationSound = action.payload;
+    setBackgroundColor: (state, action) => {
+      state.backgroundColor = action.payload;
+    },
+    setAvailableColors: (state, action) => {
+      state.availableColors = action.payload;
     },
   },
 });
 
-export const { setWorkDuration, setShortBreakDuration, setLongBreakDuration, setNotificationSound } = settingsSlice.actions;
+export const { setWorkDuration, setShortBreakDuration, setLongBreakDuration, setBackgroundColor, setAvailableColors } = settingsSlice.actions;
 export default settingsSlice.reducer;

@@ -4,6 +4,8 @@ import { startTimer, pauseTimer, resetTimer, tick } from '../redux/reducers/time
 import { incrementWorkSessions, addWorkTime, incrementShortBreaks, incrementLongBreaks } from '../redux/reducers/statisticsReducer';
 import { showNotification } from '../utils/notifications';
 import MusicPlayer from './MusicPlayer';
+import { formatTime } from '../utils/formatTime';
+import { WEBSITE_NAME } from '../constants/constants';
 
 const songUrls = [
   'https://youtu.be/70A9vqpJsZM?si=Pxq2bK4sQC51Ovle', // Replace with your YouTube URLs
@@ -33,6 +35,10 @@ function Timer() {
     }
     return () => clearInterval(interval);
   }, [timer.isRunning, dispatch]);
+
+  useEffect(() => {
+    document.title = `${formatTime(timer.time)} - ${WEBSITE_NAME}`;
+  }, [timer.time]);
 
   useEffect(() => {
     if (!timer.isRunning && timer.time === 0) {
