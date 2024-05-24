@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { auth } from '../firebase';
 import { sendPasswordResetEmail } from 'firebase/auth';
 import { toast } from 'react-toastify';
@@ -45,7 +45,7 @@ function ForgotPassword() {
         </form>
         {error && <p className="text-red-500 mt-4">{error}</p>}
         <p className="mt-4 text-gray-600">
-          Remember your password? <a href="/signin" className="text-blue-500 hover:underline">Log in</a>
+          Remember your password? <Link to="/signin" className="text-blue-500 hover:underline">Log in</Link>
         </p>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { auth } from '../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { setUser } from '../redux/reducers/authReducer';
@@ -70,7 +70,7 @@ function SignUp() {
           <button type="submit" className="bg-black text-white py-2 px-4 rounded w-full">Sign up with Email</button>
         </form>
         <p className="mt-4 text-gray-600">
-          Already have an account? <a href="/signin" className="text-blue-500 hover:underline">Log in</a>
+          Already have an account? <Link to="/signin" className="text-blue-500 hover:underline">Log in</Link>
         </p>
       </div>
     </div>
