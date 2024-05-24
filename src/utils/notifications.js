@@ -1,4 +1,4 @@
-import { store } from '../redux/store'; // Ensure correct import
+import store from '../redux/store'; // Ensure correct import
 
 const soundMap = {
   default: '/sounds/alarm.mp3',

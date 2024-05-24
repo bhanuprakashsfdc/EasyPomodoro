@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import timerReducer from './reducers/timerReducer';
 import tasksReducer from './reducers/tasksReducer';
 import settingsReducer from './reducers/settingsReducer';
+import statisticsReducer from './reducers/statisticsReducer';
 
 // Function to load state from localStorage
 const loadState = () => {
@@ -10,7 +11,6 @@ const loadState = () => {
     if (serializedState === null) {
       return undefined;
     }
-    // Ensure the state structure matches the reducers
     return {
       settings: JSON.parse(serializedState),
     };
@@ -31,11 +31,12 @@ const saveState = (state) => {
 
 const preloadedState = loadState();
 
-export const store = configureStore({
+const store = configureStore({
   reducer: {
     timer: timerReducer,
     tasks: tasksReducer,
     settings: settingsReducer,
+    statistics: statisticsReducer,
   },
   preloadedState,
 });

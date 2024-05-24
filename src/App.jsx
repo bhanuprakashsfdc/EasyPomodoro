@@ -5,6 +5,7 @@ import Timer from './components/Timer';
 import Tasks from './components/Tasks';
 import Settings from './components/Settings';
 import Profile from './components/Profile';
+import Statistics from './components/Statistics';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
@@ -23,6 +24,7 @@ function App() {
               <Route path="/tasks" element={<Tasks />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/statistics" element={<Statistics />} />
               <Route path="*" element={<div>404 Not Found</div>} />
             </Routes>
           </div>
