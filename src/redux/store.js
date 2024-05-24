@@ -4,6 +4,7 @@ import tasksReducer from './reducers/tasksReducer';
 import settingsReducer from './reducers/settingsReducer';
 import statisticsReducer from './reducers/statisticsReducer';
 import authReducer from './reducers/authReducer';
+import profileReducer from './reducers/profileReducer';
 
 const loadState = () => {
   try {
@@ -36,7 +37,8 @@ const store = configureStore({
     tasks: tasksReducer,
     settings: settingsReducer,
     statistics: statisticsReducer,
-    auth: authReducer,  // Add auth reducer here
+    auth: authReducer,
+    profile: profileReducer, // Add profile reducer here
   },
   preloadedState,
 });

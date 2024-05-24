@@ -3,50 +3,18 @@ import { Link } from 'react-router-dom';
 
 function Sidebar() {
   return (
-    <aside style={styles.sidebar}>
+    <aside className="bg-gray-200 p-4 h-screen fixed w-48">
       <nav>
-        <ul style={styles.navList}>
-          <li style={styles.navItem}>
-            <Link to="/">Home</Link>
-          </li>
-          <li style={styles.navItem}>
-            <Link to="/timer">Timer</Link>
-          </li>
-          <li style={styles.navItem}>
-            <Link to="/tasks">Tasks</Link>
-          </li>
-          <li style={styles.navItem}>
-            <Link to="/settings">Settings</Link>
-          </li>
-          <li style={styles.navItem}>
-            <Link to="/profile">Profile</Link>
-          </li>
-          <li style={styles.navItem}>
-            <Link to="/statistics">Statistics</Link>
-          </li>
+        <ul className="space-y-4">
+          <li><Link to="/" className="block p-2 hover:bg-gray-300">Home</Link></li>
+          <li><Link to="/timer" className="block p-2 hover:bg-gray-300">Timer</Link></li>
+          <li><Link to="/tasks" className="block p-2 hover:bg-gray-300">Tasks</Link></li>
+          <li><Link to="/settings" className="block p-2 hover:bg-gray-300">Settings</Link></li>
+          <li><Link to="/profile" className="block p-2 hover:bg-gray-300">Profile</Link></li>
         </ul>
       </nav>
     </aside>
   );
 }
-
-const styles = {
-  sidebar: {
-    width: '200px',
-    backgroundColor: '#f4f4f4',
-    padding: '10px',
-    height: '100vh',
-    position: 'fixed',
-    top: 0,
-    left: 0,
-  },
-  navList: {
-    listStyle: 'none',
-    padding: 0,
-  },
-  navItem: {
-    margin: '10px 0',
-  },
-};
 
 export default Sidebar;
