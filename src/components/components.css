@@ -1,5 +1,9 @@
 .text-5xl {
     font-size: 25rem !important;
+    font-weight: 800;
+}
+.p-2{
+  font-weight: 800; 
 }
 .playerview{
     display: none;

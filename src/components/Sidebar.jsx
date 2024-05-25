@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import './components.css';
 
 function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,6 +36,8 @@ function Sidebar() {
             <li><Link to="/tasks" className="block p-2 hover:bg-gray-300">Tasks</Link></li>
             <li><Link to="/settings" className="block p-2 hover:bg-gray-300">Settings</Link></li>
             <li><Link to="/profile" className="block p-2 hover:bg-gray-300">Profile</Link></li>
+            <li><Link to="/blog" className="block p-2 hover:bg-gray-300">Blog</Link></li>
+            <li><Link to="/contact-us" className="block p-2 hover:bg-gray-300">Contact Us</Link></li>
           </ul>
         </nav>
       </aside>

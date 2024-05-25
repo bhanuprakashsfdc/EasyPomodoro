@@ -65,7 +65,7 @@ function App() {
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
 
               <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:id" element={<BlogPostDetail />} />
+              <Route path="/blog/:slug" element={<BlogPostDetail />} />
 
               <Route path="*" element={<div>404 Not Found</div>} />
             </Routes>
