@@ -6,6 +6,7 @@ import { showNotification } from '../utils/notifications';
 import MusicPlayer from './MusicPlayer';
 import { formatTime } from '../utils/formatTime';
 import { WEBSITE_NAME } from '../constants/constants';
+import HomeContent from './HomeContent';
 
 const songUrls = [
   'https://youtu.be/70A9vqpJsZM?si=Pxq2bK4sQC51Ovle', // Replace with your YouTube URLs
@@ -102,6 +103,7 @@ function Timer() {
         <button onClick={() => dispatch(resetTimer(sessionType === 'work' ? workDuration * 60 : sessionType === 'shortBreak' ? shortBreakDuration * 60 : longBreakDuration * 60))} className="bg-red-500 text-white px-4 py-2 rounded">Reset</button>
       </div>
       <MusicPlayer songUrls={songUrls} isPlaying={isMusicPlaying} onPlayPause={handleMusicPlayPause} onNext={handleMusicNext} />
+      <HomeContent />
     </div>
   );
 }

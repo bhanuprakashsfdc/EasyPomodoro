@@ -6,7 +6,7 @@ import { WEBSITE_NAME } from '../constants/constants';
 
 const MiniFooter = () => {
   return (
-    <footer className="bg-black text-white py-8">
+    <footer className="bg-black text-white py-8 footerview">
       <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between">
         <div className="mb-6 md:mb-0">
           <h2 className="text-xl font-bold mb-2">{ WEBSITE_NAME }</h2>

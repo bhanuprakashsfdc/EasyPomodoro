@@ -5,6 +5,13 @@
     display: none;
 }
 
+.footerview{
+    width: 87%;
+    left: 26vh;
+    position: relative;
+    bottom: 7vh;
+}
+
 .volume-control input[type="range"] {
     appearance: none;
     width: 100%;
