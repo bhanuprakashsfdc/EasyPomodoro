@@ -4,8 +4,8 @@ import { Helmet } from 'react-helmet';
 import { blogPosts } from '../data/blogPosts';
 
 const BlogPostDetail = () => {
-  const { id } = useParams();
-  const post = blogPosts.find((post) => post.id === parseInt(id));
+  const { slug } = useParams();
+  const post = blogPosts.find((post) => post.slug === slug);
 
   if (!post) {
     return <p>Post not found</p>;

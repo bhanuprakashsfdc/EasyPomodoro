@@ -4,6 +4,15 @@
 
 :root {
     font-family: "Poppins", sans-serif;
-    font-weight: 700;
+    font-weight: 800;
     font-style: normal;
+}
+p{
+    font-weight: 200;
+}
+li{
+    font-weight: 400;  
+}
+h2{
+    font-weight: 600; 
 }

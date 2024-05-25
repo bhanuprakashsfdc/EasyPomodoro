@@ -21,7 +21,7 @@ const Blog = () => {
       {currentPosts.map((post) => (
         <div key={post.id} className="mb-6">
           <h2 className="text-2xl font-bold mb-2">
-            <Link to={`/blog/${post.id}`} className="hover:underline">
+            <Link to={`/blog/${post.slug}`} className="hover:underline">
               {post.title}
             </Link>
           </h2>
