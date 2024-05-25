@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Pagination from './Pagination';
 import { blogPosts } from '../data/blogPosts';
+import './components.css';
 
 const Blog = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -16,7 +17,7 @@ const Blog = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 blog-height">
       <h1 className="text-4xl font-bold mb-4">Blog</h1>
       {currentPosts.map((post) => (
         <div key={post.id} className="mb-6">
