@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import './components.css';
 
 function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
