@@ -13,10 +13,10 @@
 }
 
 .footerview{
-    width: 87%;
-    left: 26vh;
+    width: 100%;
+  /*  left: 26vh; */
     position: relative;
-    bottom: 7vh;
+    bottom: 2.5vh;
 }
 
 .volume-control input[type="range"] {
