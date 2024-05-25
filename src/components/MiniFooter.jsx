@@ -23,6 +23,7 @@ const MiniFooter = () => {
           <h3 className="text-lg font-semibold mb-2">Links</h3>
           <ul>
             <li><Link to="/about-us" className="hover:underline">About Us</Link></li>
+            <li><Link to="/blog" className="hover:underline">Blog</Link></li>
             <li><Link to="/contact-us" className="hover:underline">Contact Us</Link></li>
             <li><Link to="/privacy-policy" className="hover:underline">Privacy Policy</Link></li>
           </ul>
