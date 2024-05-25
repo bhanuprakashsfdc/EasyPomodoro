@@ -21,6 +21,9 @@ import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
 import PrivacyPolicy from './components/PrivacyPolicy';
 
+import Blog from './components/Blog';
+import BlogPostDetail from './components/BlogPostDetail';
+
 function PrivateRoute({ children }) {
   const user = useSelector((state) => state.auth.user);
   return user ? children : <Navigate to="/signin" />;
@@ -60,6 +63,10 @@ function App() {
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/contact-us" element={<ContactUs />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:id" element={<BlogPostDetail />} />
+
               <Route path="*" element={<div>404 Not Found</div>} />
             </Routes>
             <GlobalError />
