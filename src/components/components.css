@@ -1,5 +1,5 @@
 .text-5xl {
-    font-size: 25rem !important;
+    font-size: 30rem !important;
     font-weight: 800;
 }
 .p-2{
@@ -11,7 +11,12 @@
 .playerview{
     display: none;
 }
-
+.timerviewval{
+  height: 80vh;
+}
+.music-text{
+  text-align: center;
+}
 .footerview{
     width: 100%;
   /*  left: 26vh; */

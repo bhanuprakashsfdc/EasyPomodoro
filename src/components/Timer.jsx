@@ -7,6 +7,7 @@ import MusicPlayer from './MusicPlayer';
 import { formatTime } from '../utils/formatTime';
 import { WEBSITE_NAME } from '../constants/constants';
 import HomeContent from './HomeContent';
+import './components.css';
 
 const songUrls = [
   'https://youtu.be/70A9vqpJsZM?si=Pxq2bK4sQC51Ovle', // Replace with your YouTube URLs
@@ -87,9 +88,10 @@ function Timer() {
   };
 
   return (
-    <div className="text-center">
+    <div className="timerview">
+    <div className="text-center timerviewval">
       <h1 className="text-4xl font-bold mb-4">{sessionType === 'work' ? 'Work' : sessionType === 'shortBreak' ? 'Short Break' : 'Long Break'} Timer</h1>
-      <p className="text-5xl mb-4" style={{ fontSize: '70px' }}>
+      <p className="text-5xl mb-4">
         {new Date(timer.time * 1000).toISOString().substr(14, 5)}
       </p>
       <div className="space-x-2 mb-4">
@@ -102,6 +104,8 @@ function Timer() {
         <button onClick={() => dispatch(pauseTimer())} className="bg-yellow-500 text-white px-4 py-2 rounded">Pause</button>
         <button onClick={() => dispatch(resetTimer(sessionType === 'work' ? workDuration * 60 : sessionType === 'shortBreak' ? shortBreakDuration * 60 : longBreakDuration * 60))} className="bg-red-500 text-white px-4 py-2 rounded">Reset</button>
       </div>
+
+    </div>
       <MusicPlayer songUrls={songUrls} isPlaying={isMusicPlaying} onPlayPause={handleMusicPlayPause} onNext={handleMusicNext} />
       <HomeContent />
     </div>
