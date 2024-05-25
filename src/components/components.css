@@ -1,19 +1,27 @@
 .text-5xl {
-    font-size: 25rem !important;
+    font-size: 30rem !important;
     font-weight: 800;
 }
 .p-2{
   font-weight: 800; 
 }
+.blog-height{
+  height: 100vh;
+}
 .playerview{
     display: none;
 }
-
+.timerviewval{
+  height: 80vh;
+}
+.music-text{
+  text-align: center;
+}
 .footerview{
-    width: 87%;
-    left: 26vh;
+    width: 100%;
+  /*  left: 26vh; */
     position: relative;
-    bottom: 7vh;
+    bottom: 2.5vh;
 }
 
 .volume-control input[type="range"] {

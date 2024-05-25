@@ -46,8 +46,8 @@ function App() {
     <Router>
       <div className={`min-h-screen flex flex-col ${theme === 'dark' ? 'dark' : ''}`}>
         <div className="flex flex-1">
-          <Sidebar />
-          <div className="flex-1 p-4 ml-48">
+          {/*<Sidebar />*/}
+          <div className="flex-1 flex-1">
             {/*<ThemeToggle />*/}
             <Routes>
               <Route path="/" element={<Home />} />

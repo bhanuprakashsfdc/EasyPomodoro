@@ -41,7 +41,7 @@ function MusicPlayer({ songUrls, isPlaying, onPlayPause, onNext }) {
         width="0"
         height="0"
       />
-      <h1> Music Controls</h1>
+      <h1 className='music-text'> Music Controls</h1>
       <div className="controls flex justify-center items-center space-x-4">
         <button onClick={handlePreviousSong} className="text-2xl">
           <FontAwesomeIcon icon={faBackward} />
