@@ -22,9 +22,9 @@ const MiniFooter = () => {
         <div className="mb-6 md:mb-0">
           <h3 className="text-lg font-semibold mb-2">Links</h3>
           <ul>
-            <li><Link to="/homework" className="hover:underline">Homework</Link></li>
-            <li><Link to="/pricing" className="hover:underline">Pricing</Link></li>
-            <li><Link to="/faq" className="hover:underline">FAQ</Link></li>
+            <li><Link to="/about-us" className="hover:underline">About Us</Link></li>
+            <li><Link to="/contact-us" className="hover:underline">Contact Us</Link></li>
+            <li><Link to="/privacy-policy" className="hover:underline">Privacy Policy</Link></li>
           </ul>
         </div>
         <div>

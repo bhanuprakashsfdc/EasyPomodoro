@@ -17,6 +17,10 @@ import ThemeToggle from './components/ThemeToggle';
 import GlobalError from './components/GlobalError';
 import MiniFooter from './components/MiniFooter';
 
+import AboutUs from './components/AboutUs';
+import ContactUs from './components/ContactUs';
+import PrivacyPolicy from './components/PrivacyPolicy';
+
 function PrivateRoute({ children }) {
   const user = useSelector((state) => state.auth.user);
   return user ? children : <Navigate to="/signin" />;
@@ -52,6 +56,10 @@ function App() {
               <Route path="/signup" element={<SignUp />} />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/signout" element={<SignOut />} />
+
+              <Route path="/about-us" element={<AboutUs />} />
+              <Route path="/contact-us" element={<ContactUs />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="*" element={<div>404 Not Found</div>} />
             </Routes>
             <GlobalError />
