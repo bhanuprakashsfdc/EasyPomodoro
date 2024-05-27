@@ -95,7 +95,7 @@ function Timer() {
         {new Date(timer.time * 1000).toISOString().substr(14, 5)}
       </p>
       <div className="space-x-2 mb-4">
-        <button onClick={() => handleSessionSwitch('work')} className="bg-blue-500 text-white px-4 py-2 rounded">One Hour</button>
+        <button onClick={() => handleSessionSwitch('work')} className="bg-blue-500 text-white px-4 py-2 rounded">Pomodoro</button>
         <button onClick={() => handleSessionSwitch('shortBreak')} className="bg-blue-500 text-white px-4 py-2 rounded">Short Break</button>
         <button onClick={() => handleSessionSwitch('longBreak')} className="bg-blue-500 text-white px-4 py-2 rounded">Long Break</button>
       </div>
