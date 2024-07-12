@@ -32,12 +32,12 @@ function Sidebar() {
         <nav>
           <ul className="space-y-4">
             <li><Link to="/" className="block p-2 hover:bg-gray-300">Home</Link></li>
-            <li><Link to="/timer" className="block p-2 hover:bg-gray-300">Timer</Link></li>
-            <li><Link to="/tasks" className="block p-2 hover:bg-gray-300">Tasks</Link></li>
-            <li><Link to="/settings" className="block p-2 hover:bg-gray-300">Settings</Link></li>
-            <li><Link to="/profile" className="block p-2 hover:bg-gray-300">Profile</Link></li>
-            <li><Link to="/blog" className="block p-2 hover:bg-gray-300">Blog</Link></li>
-            <li><Link to="/contact-us" className="block p-2 hover:bg-gray-300">Contact Us</Link></li>
+            <li><Link to="/timer.html" className="block p-2 hover:bg-gray-300">Timer</Link></li>
+            <li><Link to="/tasks.html" className="block p-2 hover:bg-gray-300">Tasks</Link></li>
+            <li><Link to="/settings.html" className="block p-2 hover:bg-gray-300">Settings</Link></li>
+            <li><Link to="/profile.html" className="block p-2 hover:bg-gray-300">Profile</Link></li>
+            <li><Link to="/blog.html" className="block p-2 hover:bg-gray-300">Blog</Link></li>
+            <li><Link to="/contact-us.html" className="block p-2 hover:bg-gray-300">Contact Us</Link></li>
           </ul>
         </nav>
       </aside>
