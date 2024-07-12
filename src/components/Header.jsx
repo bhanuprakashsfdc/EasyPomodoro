@@ -7,10 +7,10 @@ function Header() {
       <nav>
         <ul className="flex justify-around">
           <li><Link to="/" className="hover:underline">Home</Link></li>
-          <li><Link to="/timer" className="hover:underline">Timer</Link></li>
-          <li><Link to="/tasks" className="hover:underline">Tasks</Link></li>
-          <li><Link to="/settings" className="hover:underline">Settings</Link></li>
-          <li><Link to="/profile" className="hover:underline">Profile</Link></li>
+          <li><Link to="/timer.html" className="hover:underline">Timer</Link></li>
+          <li><Link to="/tasks.html" className="hover:underline">Tasks</Link></li>
+          <li><Link to="/settings.html" className="hover:underline">Settings</Link></li>
+          <li><Link to="/profile.html" className="hover:underline">Profile</Link></li>
         </ul>
       </nav>
     </header>
