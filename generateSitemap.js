@@ -12,20 +12,20 @@ const websiteUrl = 'https://www.easypomodoro.com';
 const generateSitemap = () => {
   const pages = [
     { loc: `${websiteUrl}/`, lastmod: new Date().toISOString(), changefreq: 'weekly', priority: 1.0 },
-    { loc: `${websiteUrl}/timer`, lastmod: new Date().toISOString(), changefreq: 'weekly', priority: 0.9 },
-    { loc: `${websiteUrl}/tasks`, lastmod: new Date().toISOString(), changefreq: 'weekly', priority: 0.9 },
-    { loc: `${websiteUrl}/settings`, lastmod: new Date().toISOString(), changefreq: 'weekly', priority: 0.9 },
-    { loc: `${websiteUrl}/profile`, lastmod: new Date().toISOString(), changefreq: 'weekly', priority: 0.9 },
-    { loc: `${websiteUrl}/signin`, lastmod: new Date().toISOString(), changefreq: 'weekly', priority: 0.9 },
-    { loc: `${websiteUrl}/signup`, lastmod: new Date().toISOString(), changefreq: 'weekly', priority: 0.9 },
-    { loc: `${websiteUrl}/forgot-password`, lastmod: new Date().toISOString(), changefreq: 'weekly', priority: 0.9 },
-    { loc: `${websiteUrl}/about-us`, lastmod: new Date().toISOString(), changefreq: 'monthly', priority: 0.8 },
-    { loc: `${websiteUrl}/contact-us`, lastmod: new Date().toISOString(), changefreq: 'monthly', priority: 0.8 },
-    { loc: `${websiteUrl}/privacy-policy`, lastmod: new Date().toISOString(), changefreq: 'monthly', priority: 0.8 }
+    { loc: `${websiteUrl}/timer.html`, lastmod: new Date().toISOString(), changefreq: 'weekly', priority: 0.9 },
+    { loc: `${websiteUrl}/tasks.html`, lastmod: new Date().toISOString(), changefreq: 'weekly', priority: 0.9 },
+    { loc: `${websiteUrl}/settings.html`, lastmod: new Date().toISOString(), changefreq: 'weekly', priority: 0.9 },
+    { loc: `${websiteUrl}/profile.html`, lastmod: new Date().toISOString(), changefreq: 'weekly', priority: 0.9 },
+    { loc: `${websiteUrl}/signin.html`, lastmod: new Date().toISOString(), changefreq: 'weekly', priority: 0.9 },
+    { loc: `${websiteUrl}/signup.html`, lastmod: new Date().toISOString(), changefreq: 'weekly', priority: 0.9 },
+    { loc: `${websiteUrl}/forgot-password.html`, lastmod: new Date().toISOString(), changefreq: 'weekly', priority: 0.9 },
+    { loc: `${websiteUrl}/about-us.html`, lastmod: new Date().toISOString(), changefreq: 'monthly', priority: 0.8 },
+    { loc: `${websiteUrl}/contact-us.html`, lastmod: new Date().toISOString(), changefreq: 'monthly', priority: 0.8 },
+    { loc: `${websiteUrl}/privacy-policy.html`, lastmod: new Date().toISOString(), changefreq: 'monthly', priority: 0.8 }
   ];
 
   const blogPostUrls = blogPosts.map(post => ({
-    loc: `${websiteUrl}/blog/${post.slug}`,
+    loc: `${websiteUrl}/blog/${post.slug}.html`,
     lastmod: new Date().toISOString(),
     changefreq: 'weekly',
     priority: 0.8

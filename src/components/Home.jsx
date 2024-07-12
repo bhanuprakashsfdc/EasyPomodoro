@@ -3,7 +3,7 @@ import Timer from '../components/Timer';
 const Home = () => {
   return (
     <div>
-      <Timer />
+     <Timer /> 
     </div>
   )
 }

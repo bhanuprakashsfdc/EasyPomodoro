@@ -26,7 +26,7 @@ function SignUp() {
       };
       dispatch(setUser(user));
       toast.success('User account has been created!');
-      navigate('/signin');
+      navigate('/signin.html');
     } catch (error) {
       console.error('Error signing up:', error);
       setError(error.message);
@@ -70,7 +70,7 @@ function SignUp() {
           <button type="submit" className="bg-black text-white py-2 px-4 rounded w-full">Sign up with Email</button>
         </form>
         <p className="mt-4 text-gray-600">
-          Already have an account? <Link to="/signin" className="text-blue-500 hover:underline">Log in</Link>
+          Already have an account? <Link to="/signin.html" className="text-blue-500 hover:underline">Log in</Link>
         </p>
       </div>
     </div>
