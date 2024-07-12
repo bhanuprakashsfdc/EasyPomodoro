@@ -6,7 +6,7 @@
   font-weight: 800; 
 }
 .blog-height{
-  height: 100vh;
+  height: 150vh;
 }
 .playerview{
     display: none;
@@ -79,6 +79,13 @@
       position: relative;
     }
 
+    .blog-height{
+      height: 200vh;
+      max-width: 400px;
+    }
 
+    .pagination-height{
+       max-width: 400px;
+    }
     
   }
