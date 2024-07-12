@@ -17,7 +17,7 @@ function ForgotPassword() {
     try {
       await sendPasswordResetEmail(auth, email);
       toast.success('Password reset email sent successfully!');
-      navigate('/signin');
+      navigate('/signin.html');
     } catch (error) {
       console.error('Error sending password reset email:', error);
       setError(error.message);
@@ -45,7 +45,7 @@ function ForgotPassword() {
         </form>
         {error && <p className="text-red-500 mt-4">{error}</p>}
         <p className="mt-4 text-gray-600">
-          Remember your password? <Link to="/signin" className="text-blue-500 hover:underline">Log in</Link>
+          Remember your password? <Link to="/signin.html" className="text-blue-500 hover:underline">Log in</Link>
         </p>
       </div>
     </div>

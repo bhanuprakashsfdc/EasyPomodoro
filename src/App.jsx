@@ -23,10 +23,11 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 
 import Blog from './components/Blog';
 import BlogPostDetail from './components/BlogPostDetail';
+import ForgotPassword from './components/ForgotPassword';
 
 function PrivateRoute({ children }) {
   const user = useSelector((state) => state.auth.user);
-  return user ? children : <Navigate to="/signin" />;
+  return user ? children : <Navigate to="/signin.html" />;
 }
 
 function App() {
@@ -60,7 +61,7 @@ function App() {
               <Route path="/signup.html" element={<SignUp />} />
               <Route path="/signin.html" element={<SignIn />} />
               <Route path="/signout.html" element={<SignOut />} />
-
+              <Route path="/forgot-password.html" element={<ForgotPassword />} />
               <Route path="/about-us.html" element={<AboutUs />} />
               <Route path="/contact-us.html" element={<ContactUs />} />
               <Route path="/privacy-policy.html" element={<PrivacyPolicy />} />

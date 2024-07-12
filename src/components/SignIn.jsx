@@ -90,10 +90,10 @@ function SignIn() {
         </form>
         {error && <p className="text-red-500 mt-4">{error}</p>}
         <p className="mt-4 text-gray-600">
-        <Link to="/forgot-password" className="text-blue-500 hover:underline">Forgot Password</Link>
+        <Link to="/forgot-password.html" className="text-blue-500 hover:underline">Forgot Password</Link>
         </p>
         <p className="mt-4 text-gray-600">
-          Do not have an account? <Link to="/signup" className="text-blue-500 hover:underline">Create account</Link>
+          Do not have an account? <Link to="/signup.html" className="text-blue-500 hover:underline">Create account</Link>
         </p>
       </div>
     </div>
