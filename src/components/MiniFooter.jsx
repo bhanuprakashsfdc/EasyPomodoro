@@ -22,19 +22,19 @@ const MiniFooter = () => {
         <div className="mb-6 md:mb-0">
           <h3 className="text-lg font-semibold mb-2">Links</h3>
           <ul>
-            <li><Link to="/timer" className="hover:underline">Timer</Link></li>
-            <li><Link to="/tasks" className="hover:underline">Tasks</Link></li>
-            <li><Link to="/settings" className="hover:underline">Settings</Link></li>
-            <li><Link to="/profile" className="hover:underline">Profile</Link></li>
+            <li><Link to="/timer.html" className="hover:underline">Timer</Link></li>
+            <li><Link to="/tasks.html" className="hover:underline">Tasks</Link></li>
+            <li><Link to="/settings.html" className="hover:underline">Settings</Link></li>
+            <li><Link to="/profile.html" className="hover:underline">Profile</Link></li>
           </ul>
         </div>
         <div className="mb-6 md:mb-0">
           <h3 className="text-lg font-semibold mb-2">Links</h3>
           <ul>
-            <li><Link to="/about-us" className="hover:underline">About Us</Link></li>
-            <li><Link to="/blog" className="hover:underline">Blog</Link></li>
-            <li><Link to="/contact-us" className="hover:underline">Contact Us</Link></li>
-            <li><Link to="/privacy-policy" className="hover:underline">Privacy Policy</Link></li>
+            <li><Link to="/about-us.html" className="hover:underline">About Us</Link></li>
+            <li><Link to="/blog.html" className="hover:underline">Blog</Link></li>
+            <li><Link to="/contact-us.html" className="hover:underline">Contact Us</Link></li>
+            <li><Link to="/privacy-policy.html" className="hover:underline">Privacy Policy</Link></li>
           </ul>
         </div>
         <div>

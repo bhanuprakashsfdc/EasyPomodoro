@@ -68,4 +68,17 @@
     .text-5xl {
         font-size: 10rem !important;
     }
+
+    .footerview{
+      width: 123%;
+    }
+
+    .timerviewval {
+      top: 10vh;
+      height: 50vh;
+      position: relative;
+    }
+
+
+    
   }

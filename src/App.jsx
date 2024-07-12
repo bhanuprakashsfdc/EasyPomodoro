@@ -51,20 +51,20 @@ function App() {
             {/*<ThemeToggle />*/}
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/timer" element={<Timer />} />
-              <Route path="/tasks" element={<Tasks />} />
-              <Route path="/settings" element={<PrivateRoute><Settings /></PrivateRoute>} />
-              <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
-              <Route path="/statistics" element={<PrivateRoute><Statistics /></PrivateRoute>} />
-              <Route path="/signup" element={<SignUp />} />
-              <Route path="/signin" element={<SignIn />} />
-              <Route path="/signout" element={<SignOut />} />
+              <Route path="/timer.html" element={<Timer />} />
+              <Route path="/tasks.html" element={<Tasks />} />
+              <Route path="/settings.html" element={<PrivateRoute><Settings /></PrivateRoute>} />
+              <Route path="/profile.html" element={<PrivateRoute><Profile /></PrivateRoute>} />
+              <Route path="/statistics.html" element={<PrivateRoute><Statistics /></PrivateRoute>} />
+              <Route path="/signup.html" element={<SignUp />} />
+              <Route path="/signin.html" element={<SignIn />} />
+              <Route path="/signout.html" element={<SignOut />} />
 
-              <Route path="/about-us" element={<AboutUs />} />
-              <Route path="/contact-us" element={<ContactUs />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/about-us.html" element={<AboutUs />} />
+              <Route path="/contact-us.html" element={<ContactUs />} />
+              <Route path="/privacy-policy.html" element={<PrivacyPolicy />} />
 
-              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog.html" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPostDetail />} />
 
               <Route path="*" element={<div>404 Not Found</div>} />
