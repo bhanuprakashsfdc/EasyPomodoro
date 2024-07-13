@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import blogPosts from './blogPosts.json' assert { type: 'json' };
-const { keywords } = require('../data/keywords');
+import keywords from './src/data/keywords.js';
 
 // Get the directory name of the current module
 const __filename = fileURLToPath(import.meta.url);
@@ -34,8 +34,14 @@ const generateSitemap = () => {
 
   const paths = keywords.map(keyword => {
     const formattedKeyword = keyword.toLowerCase().replace(/ /g, '-');
-    return `/${formattedKeyword}.html`;
+    return {
+      loc: `${websiteUrl}/${formattedKeyword}.html`,
+      lastmod: new Date().toISOString(),
+      changefreq: 'weekly',
+      priority: 0.8
+    };
   });
+
 
   const urls = [...pages, ...blogPostUrls, ...paths];
 

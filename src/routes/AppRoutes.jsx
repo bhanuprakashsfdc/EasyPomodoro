@@ -18,7 +18,7 @@ import BlogPostDetail from '../components/BlogPostDetail';
 import ForgotPassword from '../components/ForgotPassword';
 import GlobalError from '../components/GlobalError';
 import Layouts from '../layouts/Layouts';
-import keywords from '../data/keywords';
+import keywords from '../data/keywords.js';
 import cities from '../data/cities';
 import Content from '../components/Content';
 
