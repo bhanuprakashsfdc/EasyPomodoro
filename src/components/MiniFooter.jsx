@@ -9,6 +9,7 @@ const MiniFooter = () => {
     <footer className="bg-black text-white py-8 footerview">
       <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between">
         <div className="mb-6 md:mb-0">
+        <img src="/assets/img/logo.png" alt="Logo" className="footer-logo" />
           <h2 className="text-xl font-bold mb-2">{ WEBSITE_NAME }</h2>
           <address className="not-italic">
             {/*
