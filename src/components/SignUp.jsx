@@ -37,7 +37,7 @@ function SignUp() {
     <div className="min-h-screen flex items-center justify-center bg-red-700">
       <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full text-center">
         <div className="mb-8">
-          <img src="/assets/img/glogo.png" alt="Logo" className="mx-auto mb-4" /> {/* Replace with your logo path */}
+          <img src="/assets/img/logo.png" alt="Logo" className="mx-auto mb-4" /> {/* Replace with your logo path */}
           <h1 className="text-2xl font-bold text-red-700">{WEBSITE_NAME}</h1>
           <p className="text-gray-700">Create Account</p>
         </div>

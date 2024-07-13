@@ -55,6 +55,17 @@
     border-radius: 50%;
   }
 
+  .timerviewval {
+    top: 10vh;
+    height: 70vh;
+    position: relative;
+  }
+  .header-logo{
+    width: 300px;
+  }
+  .footer-logo{
+    width: 300px;
+  }
   
 /* On screens that are 992px wide or less, go from four columns to two columns */
 @media screen and (max-width: 992px) {
@@ -87,5 +98,14 @@
     .pagination-height{
        max-width: 400px;
     }
+    .header-logo{
+      width: 250px;
+    }
     
+  }
+
+  @media screen and (max-width: 299px) {
+    .text-5xl {
+      font-size: 10rem !important;
+    }
   }
