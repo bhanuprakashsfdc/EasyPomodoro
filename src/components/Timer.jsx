@@ -6,7 +6,6 @@ import { showNotification } from '../utils/notifications';
 import MusicPlayer from './MusicPlayer';
 import { formatTime } from '../utils/formatTime';
 import { WEBSITE_NAME } from '../constants/constants';
-import HomeContent from './HomeContent';
 import './components.css';
 
 const songUrls = [
@@ -107,7 +106,7 @@ function Timer() {
 
     </div>
       <MusicPlayer songUrls={songUrls} isPlaying={isMusicPlaying} onPlayPause={handleMusicPlayPause} onNext={handleMusicNext} />
-      <HomeContent />
+      
     </div>
   );
 }
