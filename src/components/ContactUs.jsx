@@ -1,8 +1,14 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
+import { WEBSITE_NAME } from '../constants/constants';
 
 const ContactUs = () => {
+  const pageTitle = `Contact Us - ${WEBSITE_NAME}`;
   return (
     <div className="container mx-auto px-4 py-8">
+      <Helmet>
+          <title>{pageTitle}</title>
+        </Helmet>
       <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
       <p className="mb-4">If you have any questions, concerns, or feedback, please feel free to reach out to us. We're here to help!</p>
       <form className="space-y-4">

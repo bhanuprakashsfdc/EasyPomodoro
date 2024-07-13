@@ -5,8 +5,10 @@ import { sendPasswordResetEmail } from 'firebase/auth';
 import { toast } from 'react-toastify';
 
 import { WEBSITE_NAME } from '../constants/constants';
+import { Helmet } from 'react-helmet';
 
 function ForgotPassword() {
+  const pageTitle = `Forgot Password - ${WEBSITE_NAME}`;
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -26,6 +28,9 @@ function ForgotPassword() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-red-700">
+        <Helmet>
+          <title>{pageTitle}</title>
+        </Helmet>
       <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full text-center">
         <div className="mb-8">
           <img src="/assets/img/glogo.png" alt="Logo" className="mx-auto mb-4" /> {/* Replace with your logo path */}
