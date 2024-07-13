@@ -10,6 +10,15 @@ const __dirname = path.dirname(__filename);
 
 const websiteUrl = 'https://www.easypomodoro.com';
 
+const escapeXml = (string) => {
+  return string
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+};
+
 const generateSitemap = () => {
   const pages = [
     { loc: `${websiteUrl}/`, lastmod: new Date().toISOString(), changefreq: 'weekly', priority: 1.0 },
@@ -33,7 +42,7 @@ const generateSitemap = () => {
   }));
 
   const paths = keywords.map(keyword => {
-    const formattedKeyword = keyword.toLowerCase().replace(/ /g, '-');
+    const formattedKeyword = escapeXml(keyword.toLowerCase().replace(/ /g, '-'));
     return {
       loc: `${websiteUrl}/${formattedKeyword}.html`,
       lastmod: new Date().toISOString(),
