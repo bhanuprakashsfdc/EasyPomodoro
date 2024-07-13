@@ -11,9 +11,6 @@
 .playerview{
     display: none;
 }
-.timerviewval{
-  height: 80vh;
-}
 .music-text{
   text-align: center;
 }
@@ -57,7 +54,7 @@
 
   .timerviewval {
     top: 10vh;
-    height: 70vh;
+    height: 80vh;
     position: relative;
   }
   .header-logo{
