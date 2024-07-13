@@ -39,7 +39,7 @@ function Timer() {
   }, [timer.isRunning, dispatch]);
 
   useEffect(() => {
-    document.title = `${formatTime(timer.time)} - ${WEBSITE_NAME}`;
+   document.title = `${formatTime(timer.time)} - ${WEBSITE_NAME}`; 
   }, [timer.time]);
 
   useEffect(() => {

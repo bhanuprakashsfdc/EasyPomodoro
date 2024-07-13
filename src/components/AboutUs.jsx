@@ -1,9 +1,14 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { WEBSITE_NAME } from '../constants/constants';
 
 const AboutUs = () => {
+  const pageTitle = `About Us - ${WEBSITE_NAME}`;
     return (
       <div className="container mx-auto px-4 py-8">
+        <Helmet>
+          <title>{pageTitle}</title>
+        </Helmet>
         <h1 className="text-4xl font-bold mb-4">About Us</h1>
         <p className="mb-4">Welcome to { WEBSITE_NAME }, your ultimate productivity partner. At { WEBSITE_NAME }, we are dedicated to helping you optimize your time and achieve your goals through our innovative timer and task management solutions.</p>
   

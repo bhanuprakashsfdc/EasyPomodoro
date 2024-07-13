@@ -1,9 +1,14 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { WEBSITE_NAME } from '../constants/constants';
 
 const PrivacyPolicy = () => {
+  const pageTitle = `Privacy Policy - ${WEBSITE_NAME}`;
   return (
     <div className="container mx-auto px-4 py-8">
+        <Helmet>
+          <title>{pageTitle}</title>
+        </Helmet>
       <h1 className="text-4xl font-bold mb-4">Privacy Policy</h1>
       <p className="mb-4">Your privacy is important to us. It is { WEBSITE_NAME }'s policy to respect your privacy regarding any information we may collect from you across our website, [website name], and other sites we own and operate.</p>
       <h2 className="text-2xl font-bold mb-2">1. Information we collect</h2>
