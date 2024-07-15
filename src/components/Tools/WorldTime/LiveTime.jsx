@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { WEBSITE_NAME } from '../../constants/constants'; 
+import { WEBSITE_NAME } from '../../../constants/constants'; 
 
 const LiveTime = () => {
   const [timeString, setTimeString] = useState('');
