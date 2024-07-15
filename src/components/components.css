@@ -11,9 +11,6 @@
 .playerview{
     display: none;
 }
-.timerviewval{
-  height: 80vh;
-}
 .music-text{
   text-align: center;
 }
@@ -57,7 +54,7 @@
 
   .timerviewval {
     top: 10vh;
-    height: 70vh;
+    height: 80vh;
     position: relative;
   }
   .header-logo{
@@ -66,7 +63,13 @@
   .footer-logo{
     width: 300px;
   }
-  
+  .clock-ui{
+    text-align: center;
+  }
+  .clock-display{
+      font-size: 200px;
+  }
+
 /* On screens that are 992px wide or less, go from four columns to two columns */
 @media screen and (max-width: 992px) {
     .text-5xl {
