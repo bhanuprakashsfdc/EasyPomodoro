@@ -31,7 +31,11 @@ const generateSitemap = () => {
     { loc: `${websiteUrl}/forgot-password.html`, lastmod: new Date().toISOString(), changefreq: 'weekly', priority: 0.9 },
     { loc: `${websiteUrl}/about-us.html`, lastmod: new Date().toISOString(), changefreq: 'monthly', priority: 0.8 },
     { loc: `${websiteUrl}/contact-us.html`, lastmod: new Date().toISOString(), changefreq: 'monthly', priority: 0.8 },
-    { loc: `${websiteUrl}/privacy-policy.html`, lastmod: new Date().toISOString(), changefreq: 'monthly', priority: 0.8 }
+    { loc: `${websiteUrl}/privacy-policy.html`, lastmod: new Date().toISOString(), changefreq: 'monthly', priority: 0.8 },
+    { loc: `${websiteUrl}/notepad.html`, lastmod: new Date().toISOString(), changefreq: 'monthly', priority: 0.8 },
+    { loc: `${websiteUrl}/live-time.html`, lastmod: new Date().toISOString(), changefreq: 'monthly', priority: 0.8 },
+    { loc: `${websiteUrl}/world-time.html`, lastmod: new Date().toISOString(), changefreq: 'monthly', priority: 0.8 },
+    { loc: `${websiteUrl}/calender.html`, lastmod: new Date().toISOString(), changefreq: 'monthly', priority: 0.8 },
   ];
 
   const blogPostUrls = blogPosts.map(post => ({

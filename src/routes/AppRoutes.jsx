@@ -21,6 +21,10 @@ import Layouts from '../layouts/Layouts';
 import keywords from '../data/keywords.js';
 import cities from '../data/cities';
 import Content from '../components/Content';
+import Notepad from '../components/Tools/Notepad.jsx';
+import LiveTime from '../components/Tools/LiveTime.jsx';
+import WorldTime from '../components/Tools/WorldTime/WorldTime.jsx';
+import CalendarTool from '../components/Tools/Calender/CalendarTool.jsx';
 
 function PrivateRoute({ children }) {
   const user = useSelector((state) => state.auth.user);
@@ -47,6 +51,11 @@ const AppRoutes = () => {
         <Route path="blog.html" element={<Blog />} />
         <Route path="blog/:slug.html" element={<BlogPostDetail />} />
         <Route path="*" element={<div>404 Not Found</div>} />
+
+        <Route path="notepad.html" element={<Notepad />} />
+        <Route path="live-time.html" element={<LiveTime />} />
+        <Route path="world-time.html" element={<WorldTime />} />
+        <Route path="calender.html" element={<CalendarTool />} />
         {keywords.map((keyword, index) => {
         const formattedKeyword = keyword.toLowerCase().replace(/ /g, '-');
         const path = `/${formattedKeyword}.html`;

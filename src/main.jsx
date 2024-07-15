@@ -7,6 +7,7 @@ import './index.css'
 import './tailwind.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import '../public/assets/css/custom.css';
 
 // Request notification permission
 if (Notification.permission === 'default') {
