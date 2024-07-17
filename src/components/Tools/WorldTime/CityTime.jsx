@@ -2,7 +2,39 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import cities from '../../../data/cities';
 
-const CityTime = () => {
+const CityTime = ({ city }) => {
+  const formattedCity = city.city.toLowerCase().replace(/ /g, '-');
+  const url = `/city/${formattedCity}.html`;
+  console.log('Line no 8 City parameter:', city);
+
+  const [timeString, setTimeString] = useState('');
+
+  useEffect(() => {
+    if (!cityData) return;
+    
+  const tick = () => {
+    const now = new Date();
+      const timeInCity = new Date(now.toLocaleString('en-US', { timeZone: cityData.timezone }));
+      const hours = String(timeInCity.getHours()).padStart(2, '0');
+      const minutes = String(timeInCity.getMinutes()).padStart(2, '0');
+      const seconds = String(timeInCity.getSeconds()).padStart(2, '0');
+      const formattedTime = `${hours}:${minutes}:${seconds}`;
+      setTimeString(formattedTime);
+      document.title = `Time in ${cityData.city} - ${formattedTime}`;
+      console.log('Line no 11 now:', now);
+    };
+
+    const timerID = setInterval(tick, 1000);
+    return () => clearInterval(timerID);
+  }, [cityData]);
+
+  if (!cityData) {
+    return <div>City not found</div>;
+  }
+  return(
+    <h2> {city}</h2>
+  )
+/*
   const { city } = useParams();
   const [timeString, setTimeString] = useState('');
   // Log the city parameter to debug
@@ -41,6 +73,7 @@ const CityTime = () => {
       </div>
     </div>
   );
+  */
 };
 
 export default CityTime;

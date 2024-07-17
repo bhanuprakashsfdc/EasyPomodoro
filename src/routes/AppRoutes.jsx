@@ -26,6 +26,7 @@ import LiveTime from '../components/Tools/WorldTime/LiveTime.jsx';
 import WorldTime from '../components/Tools/WorldTime/WorldTime.jsx';
 import CalendarTool from '../components/Tools/Calender/CalendarTool.jsx';
 import CityTime from '../components/Tools/WorldTime/CityTime.jsx';
+import Terms from '../components/Terms.jsx';
 
 function PrivateRoute({ children }) {
   const user = useSelector((state) => state.auth.user);
@@ -48,6 +49,7 @@ const AppRoutes = () => {
         <Route path="forgot-password.html" element={<ForgotPassword />} />
         <Route path="about-us.html" element={<AboutUs />} />
         <Route path="contact-us.html" element={<ContactUs />} />
+        <Route path="terms-conditions.html" element={<Terms />} />
         <Route path="privacy-policy.html" element={<PrivacyPolicy />} />
         <Route path="blog.html" element={<Blog />} />
         <Route path="blog/:slug.html" element={<BlogPostDetail />} />
@@ -78,7 +80,7 @@ const AppRoutes = () => {
             <Route
               key={index}
               path={path}
-              element={<CityTime />}
+              element={<CityTime city={city}/>}
             />
           );
         })}

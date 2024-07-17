@@ -26,6 +26,7 @@ const ContactUs = () => {
         </div>
         <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded">Send</button>
       </form>
+      <p> OR drop mail to hi@easypomdoro.com</p>
     </div>
   );
 };
