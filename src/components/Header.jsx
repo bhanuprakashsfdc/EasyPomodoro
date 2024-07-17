@@ -48,6 +48,7 @@ function Header() {
           <ul className="flex space-x-4">
             <li><Link to="/" className="hover:underline">Home</Link></li>
             <li><Link to="/timer.html" className="hover:underline">Timer</Link></li>
+            <li><Link to="/live-time.html" className="hover:underline">Time</Link></li>
             <li><Link to="/tasks.html" className="hover:underline">Tasks</Link></li>
             {isLoggedIn ? (
               <>

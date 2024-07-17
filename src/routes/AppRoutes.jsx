@@ -19,12 +19,14 @@ import ForgotPassword from '../components/ForgotPassword';
 import GlobalError from '../components/GlobalError';
 import Layouts from '../layouts/Layouts';
 import keywords from '../data/keywords.js';
-import cities from '../data/cities';
+import cities from '../data/cities.js';
 import Content from '../components/Content';
 import Notepad from '../components/Tools/Notepad.jsx';
-import LiveTime from '../components/Tools/LiveTime.jsx';
+import LiveTime from '../components/Tools/WorldTime/LiveTime.jsx';
 import WorldTime from '../components/Tools/WorldTime/WorldTime.jsx';
 import CalendarTool from '../components/Tools/Calender/CalendarTool.jsx';
+import CityTime from '../components/Tools/WorldTime/CityTime.jsx';
+import Terms from '../components/Terms.jsx';
 
 function PrivateRoute({ children }) {
   const user = useSelector((state) => state.auth.user);
@@ -47,6 +49,7 @@ const AppRoutes = () => {
         <Route path="forgot-password.html" element={<ForgotPassword />} />
         <Route path="about-us.html" element={<AboutUs />} />
         <Route path="contact-us.html" element={<ContactUs />} />
+        <Route path="terms-conditions.html" element={<Terms />} />
         <Route path="privacy-policy.html" element={<PrivacyPolicy />} />
         <Route path="blog.html" element={<Blog />} />
         <Route path="blog/:slug.html" element={<BlogPostDetail />} />
@@ -56,6 +59,7 @@ const AppRoutes = () => {
         <Route path="live-time.html" element={<LiveTime />} />
         <Route path="world-time.html" element={<WorldTime />} />
         <Route path="calender.html" element={<CalendarTool />} />
+       
         {keywords.map((keyword, index) => {
         const formattedKeyword = keyword.toLowerCase().replace(/ /g, '-');
         const path = `/${formattedKeyword}.html`;
@@ -67,6 +71,19 @@ const AppRoutes = () => {
           />
         );
       })}
+
+        {cities.map((city, index) => {
+          const formattedCity = city.city.toLowerCase().replace(/ /g, '-');
+          const path = `/city/${formattedCity}.html`;
+          console.log(`Adding route for city: ${city.city} at path: ${path}`);
+          return (
+            <Route
+              key={index}
+              path={path}
+              element={<CityTime city={city}/>}
+            />
+          );
+        })}
       </Route>
     </Routes>
   );
