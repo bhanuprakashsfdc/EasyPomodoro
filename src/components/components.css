@@ -11,9 +11,6 @@
 .playerview{
     display: none;
 }
-.timerviewval{
-  height: 80vh;
-}
 .music-text{
   text-align: center;
 }
@@ -55,7 +52,24 @@
     border-radius: 50%;
   }
 
-  
+  .timerviewval {
+    top: 10vh;
+    height: 80vh;
+    position: relative;
+  }
+  .header-logo{
+    width: 300px;
+  }
+  .footer-logo{
+    width: 300px;
+  }
+  .clock-ui{
+    text-align: center;
+  }
+  .clock-display{
+      font-size: 200px;
+  }
+
 /* On screens that are 992px wide or less, go from four columns to two columns */
 @media screen and (max-width: 992px) {
     .text-5xl {
@@ -87,5 +101,14 @@
     .pagination-height{
        max-width: 400px;
     }
+    .header-logo{
+      width: 250px;
+    }
     
+  }
+
+  @media screen and (max-width: 299px) {
+    .text-5xl {
+      font-size: 10rem !important;
+    }
   }

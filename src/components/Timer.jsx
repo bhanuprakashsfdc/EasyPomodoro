@@ -6,13 +6,12 @@ import { showNotification } from '../utils/notifications';
 import MusicPlayer from './MusicPlayer';
 import { formatTime } from '../utils/formatTime';
 import { WEBSITE_NAME } from '../constants/constants';
-import HomeContent from './HomeContent';
 import './components.css';
 
 const songUrls = [
-  'https://youtu.be/70A9vqpJsZM?si=Pxq2bK4sQC51Ovle', // Replace with your YouTube URLs
-  'https://www.youtube.com/watch?v=s9jHnpPlznM',
-  'https://www.youtube.com/watch?v=Y7HGrexMZsE',
+ /* 'https://youtu.be/70A9vqpJsZM?si=Pxq2bK4sQC51Ovle', */
+  'https://youtu.be/s9jHnpPlznM?si=-KGU7ujNQXzatnrM',
+  'https://youtu.be/Y7HGrexMZsE?si=C02jgTobCgwcj0z7',
   // Add more song URLs here
 ];
 
@@ -23,6 +22,7 @@ function Timer() {
   const [sessionType, setSessionType] = useState('work');
   const [sessionCount, setSessionCount] = useState(0);
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+  const [currentSongIndex, setCurrentSongIndex] = useState(0); // Added to track song index
 
   useEffect(() => {
     let interval = null;
@@ -39,7 +39,7 @@ function Timer() {
   }, [timer.isRunning, dispatch]);
 
   useEffect(() => {
-    document.title = `${formatTime(timer.time)} - ${WEBSITE_NAME}`;
+    document.title = `${formatTime(timer.time)} - ${WEBSITE_NAME}`; 
   }, [timer.time]);
 
   useEffect(() => {
@@ -70,6 +70,7 @@ function Timer() {
 
   const handleSessionSwitch = (type) => {
     setSessionType(type);
+    setCurrentSongIndex(0); // Reset song index when switching sessions
     if (type === 'work') {
       dispatch(resetTimer(workDuration * 60));
     } else if (type === 'shortBreak') {
@@ -84,30 +85,36 @@ function Timer() {
   };
 
   const handleMusicNext = (nextIndex) => {
-    // Additional logic for handling the next song if needed
+    console.log('Line no 80::: Jumping to next song');
+    setCurrentSongIndex(nextIndex); // Handle next song index correctly
   };
 
   return (
     <div className="timerview">
-    <div className="text-center timerviewval">
-      <h1 className="text-4xl font-bold mb-4">{sessionType === 'work' ? 'Work' : sessionType === 'shortBreak' ? 'Short Break' : 'Long Break'} Timer</h1>
-      <p className="text-5xl mb-4">
-        {new Date(timer.time * 1000).toISOString().substr(14, 5)}
-      </p>
-      <div className="space-x-2 mb-4">
-        <button onClick={() => handleSessionSwitch('work')} className="bg-blue-500 text-white px-4 py-2 rounded">Pomodoro</button>
-        <button onClick={() => handleSessionSwitch('shortBreak')} className="bg-blue-500 text-white px-4 py-2 rounded">Short Break</button>
-        <button onClick={() => handleSessionSwitch('longBreak')} className="bg-blue-500 text-white px-4 py-2 rounded">Long Break</button>
+      <div className="text-center timerviewval">
+        <h1 className="text-4xl font-bold mb-4">
+          {sessionType === 'work' ? 'Work' : sessionType === 'shortBreak' ? 'Short Break' : 'Long Break'} Timer
+        </h1>
+        <p className="text-5xl mb-4">
+          {new Date(timer.time * 1000).toISOString().substr(14, 5)}
+        </p>
+        <div className="space-x-2 mb-4">
+          <button onClick={() => handleSessionSwitch('work')} className="bg-blue-500 text-white px-4 py-2 rounded">Pomodoro</button>
+          <button onClick={() => handleSessionSwitch('shortBreak')} className="bg-blue-500 text-white px-4 py-2 rounded">Short Break</button>
+          <button onClick={() => handleSessionSwitch('longBreak')} className="bg-blue-500 text-white px-4 py-2 rounded">Long Break</button>
+        </div>
+        <div className="space-x-2">
+          <button onClick={() => dispatch(startTimer())} className="bg-green-500 text-white px-4 py-2 rounded">Start</button>
+          <button onClick={() => dispatch(pauseTimer())} className="bg-yellow-500 text-white px-4 py-2 rounded">Pause</button>
+          <button onClick={() => dispatch(resetTimer(sessionType === 'work' ? workDuration * 60 : sessionType === 'shortBreak' ? shortBreakDuration * 60 : longBreakDuration * 60))} className="bg-red-500 text-white px-4 py-2 rounded">Reset</button>
+        </div>
       </div>
-      <div className="space-x-2">
-        <button onClick={() => dispatch(startTimer())} className="bg-green-500 text-white px-4 py-2 rounded">Start</button>
-        <button onClick={() => dispatch(pauseTimer())} className="bg-yellow-500 text-white px-4 py-2 rounded">Pause</button>
-        <button onClick={() => dispatch(resetTimer(sessionType === 'work' ? workDuration * 60 : sessionType === 'shortBreak' ? shortBreakDuration * 60 : longBreakDuration * 60))} className="bg-red-500 text-white px-4 py-2 rounded">Reset</button>
-      </div>
-
-    </div>
-      <MusicPlayer songUrls={songUrls} isPlaying={isMusicPlaying} onPlayPause={handleMusicPlayPause} onNext={handleMusicNext} />
-      <HomeContent />
+      <MusicPlayer 
+        songUrls={songUrls} 
+        isPlaying={isMusicPlaying} 
+        onPlayPause={handleMusicPlayPause} 
+        onNext={handleMusicNext} 
+      />
     </div>
   );
 }

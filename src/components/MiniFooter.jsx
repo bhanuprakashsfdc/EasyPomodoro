@@ -9,6 +9,7 @@ const MiniFooter = () => {
     <footer className="bg-black text-white py-8 footerview">
       <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between">
         <div className="mb-6 md:mb-0">
+        <img src="/assets/img/logo.png" alt="Logo" className="footer-logo" />
           <h2 className="text-xl font-bold mb-2">{ WEBSITE_NAME }</h2>
           <address className="not-italic">
             {/*
@@ -34,6 +35,7 @@ const MiniFooter = () => {
             <li><Link to="/about-us.html" className="hover:underline">About Us</Link></li>
             <li><Link to="/blog.html" className="hover:underline">Blog</Link></li>
             <li><Link to="/contact-us.html" className="hover:underline">Contact Us</Link></li>
+            <li><Link to="/terms-conditions.html" className="hover:underline">Terms And Conditions</Link></li>
             <li><Link to="/privacy-policy.html" className="hover:underline">Privacy Policy</Link></li>
           </ul>
         </div>

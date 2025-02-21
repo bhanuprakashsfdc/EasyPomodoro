@@ -2,12 +2,22 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import blogPosts from './blogPosts.json' assert { type: 'json' };
+import keywords from './src/data/keywords.js';
 
 // Get the directory name of the current module
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const websiteUrl = 'https://www.easypomodoro.com';
+
+const escapeXml = (string) => {
+  return string
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+};
 
 const generateSitemap = () => {
   const pages = [
@@ -21,7 +31,11 @@ const generateSitemap = () => {
     { loc: `${websiteUrl}/forgot-password.html`, lastmod: new Date().toISOString(), changefreq: 'weekly', priority: 0.9 },
     { loc: `${websiteUrl}/about-us.html`, lastmod: new Date().toISOString(), changefreq: 'monthly', priority: 0.8 },
     { loc: `${websiteUrl}/contact-us.html`, lastmod: new Date().toISOString(), changefreq: 'monthly', priority: 0.8 },
-    { loc: `${websiteUrl}/privacy-policy.html`, lastmod: new Date().toISOString(), changefreq: 'monthly', priority: 0.8 }
+    { loc: `${websiteUrl}/privacy-policy.html`, lastmod: new Date().toISOString(), changefreq: 'monthly', priority: 0.8 },
+    { loc: `${websiteUrl}/notepad.html`, lastmod: new Date().toISOString(), changefreq: 'monthly', priority: 0.8 },
+    { loc: `${websiteUrl}/live-time.html`, lastmod: new Date().toISOString(), changefreq: 'monthly', priority: 0.8 },
+    { loc: `${websiteUrl}/world-time.html`, lastmod: new Date().toISOString(), changefreq: 'monthly', priority: 0.8 },
+    { loc: `${websiteUrl}/calender.html`, lastmod: new Date().toISOString(), changefreq: 'monthly', priority: 0.8 },
   ];
 
   const blogPostUrls = blogPosts.map(post => ({
@@ -31,7 +45,18 @@ const generateSitemap = () => {
     priority: 0.8
   }));
 
-  const urls = [...pages, ...blogPostUrls];
+  const paths = keywords.map(keyword => {
+    const formattedKeyword = escapeXml(keyword.toLowerCase().replace(/ /g, '-'));
+    return {
+      loc: `${websiteUrl}/${formattedKeyword}.html`,
+      lastmod: new Date().toISOString(),
+      changefreq: 'weekly',
+      priority: 0.8
+    };
+  });
+
+
+  const urls = [...pages, ...blogPostUrls, ...paths];
 
   const urlEntries = urls.map(url => `
     <url>

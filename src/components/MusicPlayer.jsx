@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import ReactPlayer from 'react-player';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPause, faForward, faBackward } from '@fortawesome/free-solid-svg-icons';
@@ -8,6 +8,13 @@ function MusicPlayer({ songUrls, isPlaying, onPlayPause, onNext }) {
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [volume, setVolume] = useState(0.8); // Initial volume set to 80%
   const playerRef = useRef(null);
+
+  // Ensure that ReactPlayer reloads and plays the correct song when the index changes
+  useEffect(() => {
+    if (playerRef.current) {
+      playerRef.current.seekTo(0, 'seconds'); // Restart the new song from the beginning
+    }
+  }, [currentSongIndex]);
 
   const handlePlayPause = () => {
     onPlayPause(!isPlaying);
@@ -33,15 +40,16 @@ function MusicPlayer({ songUrls, isPlaying, onPlayPause, onNext }) {
     <div className="music-player">
       <ReactPlayer
         ref={playerRef}
-        url={songUrls[currentSongIndex]}
+        key={currentSongIndex} // Forces ReactPlayer to reload when the song changes
+        url={songUrls[currentSongIndex]} // Change song URL when the index changes
         playing={isPlaying}
         volume={volume}
-        onEnded={handleNextSong}
+        onEnded={handleNextSong} // Automatically go to the next song when the current one ends
         controls={false}
         width="0"
         height="0"
       />
-      <h1 className='music-text'> Music Controls</h1>
+      <h1 className="music-text"> Music Controls</h1>
       <div className="controls flex justify-center items-center space-x-4">
         <button onClick={handlePreviousSong} className="text-2xl">
           <FontAwesomeIcon icon={faBackward} />
