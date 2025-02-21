@@ -1,0 +1,16 @@
+.feedback {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    z-index: 5;
+  }
+  
+  .feedback:hover {
+    background-color: #0056b3;
+  }
+  

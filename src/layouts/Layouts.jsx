@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import HomeContent from '../components/HomeContent';
 import MiniFooter from '../components/MiniFooter';
 import Footer from '../components/Footer';
+import Feedback from '../components/Feedback/Feedback';
 
 const Layouts = () => {
   return (
@@ -13,6 +14,7 @@ const Layouts = () => {
         <Outlet />
       </main>
       <HomeContent />
+      <Feedback />
       <MiniFooter />
       <Footer />
     </div>

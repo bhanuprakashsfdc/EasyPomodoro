@@ -36,8 +36,9 @@ function PrivateRoute({ children }) {
 const AppRoutes = () => {
   return (
     <Routes>
+      <Route path="app.html" element={<Timer />} />
       <Route path="/" element={<Layouts />}>
-        <Route index element={<Home />} />
+        <Route index element={<Home />} />       
         <Route path="timer.html" element={<Timer />} />
         <Route path="tasks.html" element={<Tasks />} />
         <Route path="settings.html" element={<PrivateRoute><Settings /></PrivateRoute>} />
